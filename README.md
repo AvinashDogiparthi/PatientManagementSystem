@@ -1,8 +1,3 @@
-
-![Spring Boot Dependencies](springbootDependencies.PNG)
-
-> The dependencies required for this Spring Boot project are described below.
-
 # Patient Service
 
 ---

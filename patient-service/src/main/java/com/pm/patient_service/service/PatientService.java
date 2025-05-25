@@ -5,6 +5,7 @@ import com.pm.patient_service.Exception.GlobalExceptionHandler;
 import com.pm.patient_service.Exception.PatientNotFoundException;
 import com.pm.patient_service.dto.PatientRequestDTO;
 import com.pm.patient_service.dto.PatientResponseDTO;
+import com.pm.patient_service.grpc.BillingServiceGrpcClient;
 import com.pm.patient_service.mapper.PatientMapper;
 import com.pm.patient_service.model.Patient;
 import com.pm.patient_service.repository.PatientRepository;
@@ -24,8 +25,11 @@ public class PatientService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PatientService.class);
 
-    public PatientService(PatientRepository patientRepository){
+    private final BillingServiceGrpcClient billingServiceGrpcClient;
+
+    public PatientService(PatientRepository patientRepository, BillingServiceGrpcClient billingServiceGrpcClient){
         this.patientRepository = patientRepository;
+        this.billingServiceGrpcClient =  billingServiceGrpcClient;
     }
 
     public List<PatientResponseDTO> getPatient(){
@@ -43,6 +47,8 @@ public class PatientService {
         }
         Patient patient = patientRepository.save(PatientMapper.toModel(patientRequestDTO));
         LOGGER.info("Successful in creating a new patient with email : {}",patient.getEmail());
+
+        billingServiceGrpcClient.createBillingAccount(patient.getId().toString(),patient.getName(),patient.getEmail());
 
         // an email address must be unique
         return PatientMapper.mapToResponse(patient);

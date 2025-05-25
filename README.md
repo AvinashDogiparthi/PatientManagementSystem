@@ -387,3 +387,23 @@ WHERE NOT EXISTS (
 ```
 POSTGRES_DB=db;POSTGRES_PASSWORD=password;POSTGRES_USER=admin_user
 ```
+
+# API Documentation
+
+You can verify the available API specifications using **Swagger UI** at the following link:
+
+👉 [http://localhost:4000/v3/api-docs](http://localhost:4000/v3/api-docs)
+
+---
+
+### How to view API specifications in Swagger format
+
+1. Open the above link in your browser.  
+2. Copy the entire JSON content displayed in the console.  
+3. Go to [https://editor.swagger.io/](https://editor.swagger.io/).  
+4. Paste the copied JSON content into the editor.  
+5. You will see each API specification rendered beautifully in Swagger format, making it easier to read, explore, and interact with the APIs.
+
+---
+
+

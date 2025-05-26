@@ -384,6 +384,7 @@ WHERE NOT EXISTS (
 
 ## Environment Variables
 
+
 ```
 POSTGRES_DB=db;POSTGRES_PASSWORD=password;POSTGRES_USER=admin_user
 ```

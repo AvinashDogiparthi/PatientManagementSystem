@@ -407,4 +407,21 @@ You can verify the available API specifications using **Swagger UI** at the foll
 
 ---
 
+## 🔐 JWT Token Decoder
+
+To inspect or debug a **JWT (JSON Web Token)**, you can use the official JWT decoding tool provided at [jwt.io](https://jwt.io/).
+
+### 🧪 How to Decode a JWT Token
+
+1. Go to [https://jwt.io/](https://jwt.io/)
+2. Paste your **JWT token** in the left-hand "Encoded" section.
+3. The decoded **header**, **payload**, and **signature** will be shown on the right-hand side.
+4. Optionally, verify the signature by providing the secret or public key in the "Verify Signature" section.
+
+### 🧾 JWT Structure
+
+A JWT typically has three parts, separated by dots (`.`):
+
+
+
 
